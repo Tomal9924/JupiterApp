@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">JupitarPlatform</string>
+    <string name="header">Jupitar Platform</string>
+    <string name="rateInfo">Please take a few minutes to tell us how we are doing with your web site.I review each and every one of those
+    surveys personally to make sure are providing the best service possible.If you have any questions about ANYTHING related to online marketing,feel free to reach out me at the given number below. Thanks, Evan
+    </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="comment_hint"><font size="15">Comment</font></string>
+    <string name="first_name_hint"><font size="15">First Name (Required)</font></string>
+    <string name="last_name_hint"><font size="15">Last Name (Required)</font></string>
+    <string name="street_hint"><font size="15">Street</font></string>
+    <string name="state_hint"><font size="15">State</font></string>
+    <string name="city_hint"><font size="15">City</font></string>
+    <string name="zip_hint"><font size="15">Zip</font></string>
+    <string name="phone_hint"><font size="15">Phone</font></string>
+    <string name="email_hint"><font size="15">Email</font></string>
+    <string name="photo_hint"><font size="15">Photo Title</font></string>
+    <string name="location_hint"><font size="15">Location</font></string>
+    <string name="description_hint"><font size="15">Description</font></string>
+    <string-array name="selection">
+        <item>yes</item>
+        <item>No</item>
+
+    </string-array>
+
+
+</resources>

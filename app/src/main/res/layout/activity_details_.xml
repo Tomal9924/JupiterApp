@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Details_Activity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?attr/colorPrimary"
+            android:gravity="center"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="#6cb53f">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Lead Details"
+                android:textColor="#6cb53f" />
+
+            <TextView
+                android:id="@+id/toolbarSubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#6cb53f" />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/back"
+            android:drawableStart="@drawable/back"
+            android:text="Back"
+            android:textColor="@color/White" />
+
+</android.support.v7.widget.Toolbar>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:layout_height="wrap_content"
+                android:text="Lead Type"
+                android:padding="5dp"
+
+                />
+            <TextView
+                android:id="@+id/callTypeText"
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:text="Phone Call"
+                android:textColor="@color/Black"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Customer"
+                android:padding="5dp"
+                android:layout_weight=".3"
+
+                />
+            <TextView
+                android:id="@+id/customerViewText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_weight=".7"
+                android:textColor="@color/Black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:padding="5dp"
+                android:layout_weight=".3"
+
+                />
+            <TextView
+                android:id="@+id/callNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="832-432-1159"
+                android:layout_weight=".7"
+                android:textColor="@color/Black"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:padding="5dp"
+
+                />
+            <TextView
+                android:id="@+id/stateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Porter,Tx"
+                android:layout_weight=".7"
+                android:textColor="@color/Black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:padding="5dp"
+
+                />
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="19 Oct,2018 11:53:32 AM"
+                android:layout_weight=".7"
+                android:textColor="@color/Black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:padding="5dp"
+                android:layout_weight=".3"
+                />
+            <TextView
+                android:id="@+id/commentText"
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/Black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:layout_height="wrap_content"
+                android:text="Note"
+                android:padding="5dp"
+
+                />
+           <EditText
+               android:id="@+id/noteEditText"
+               android:layout_width="0dp"
+               android:layout_weight=".7"
+               android:layout_height="wrap_content"
+               android:layout_marginRight="20dp"
+               android:padding="7dp"
+               android:hint="write note here..."
+               android:background="@drawable/pass_edit_textn_new"
+               android:inputType="text" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/noteSubmitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:layout_margin="13dp"
+            android:textColor="@color/White"
+            android:background="@drawable/buttonshape"/>
+
+
+        <TextView
+            android:id="@+id/details_view_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_notes"
+            android:drawableLeft="@drawable/ic_notes"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/item_background"
+            android:text="View Notes"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:layout_marginLeft="20dp">
+
+    <ImageView
+        android:id="@+id/cameraImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/camera_ic"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="center"
+        android:layout_marginLeft="10dp"
+
+    />
+    <!--<Button
+        android:id="@+id/btnCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/imageview_shape"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:text="Camera"
+        />-->
+    <ImageView
+        android:id="@+id/videoCameraView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/video_ic"
+        android:layout_gravity="bottom"
+
+        android:layout_marginLeft="10dp"
+        />
+    <ImageView
+        android:id="@+id/rattingImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/rate"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        />
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>

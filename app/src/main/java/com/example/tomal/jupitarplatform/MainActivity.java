@@ -1,0 +1,250 @@
+package com.example.tomal.jupitarplatform;
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Handler;
+import android.provider.Settings;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.suke.widget.SwitchButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import static com.example.tomal.jupitarplatform.central_station_lead_Activity.trackLoginFromDashboard;
+
+@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+public class MainActivity extends AppCompatActivity {
+
+    Button loginbtn;
+    EditText email;
+    EditText Password;
+    SwitchButton xRemember;
+    public static String SITE_ID="";
+    public static  String COMPANY_NAME="";
+    public static String LEAD_ID="";
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    int PERMISSION_ALL = 1;
+    static boolean fromDateRange = false;
+    public static final String COOKIE_FOR_API="PHPSESSID=4l9fm2ostlkgvv85httbmbe102";
+    public static final String DEVICE_TOKEN="APA91bFDhsk59EK7er9r5XM-6s1hWjMK0WKIp2hZchQsnzVlPQwdWoqQe4Thxm2p_dhzeI-2omZMepaSffJgAgYhaZpOQQzLi8JTwOOxUNuu3QTrsdV3ASiHhfSrcLtr0gJ1xL7LwMVPP2636W2HY1um3963A0-0-g";
+
+
+    String[] PERMISSIONS = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.INTERNET,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.ANSWER_PHONE_CALLS,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.CALL_PRIVILEGED
+    };
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        loginbtn = (findViewById(R.id.loginButtton));
+
+        email = (findViewById(R.id.emailEdit));
+        Password = (findViewById(R.id.passwordEdit));
+        xRemember = (findViewById(R.id.switch_button));
+
+        if (!hasPermissions(this, PERMISSIONS)) {
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        loginButton();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        email = (findViewById(R.id.emailEdit));
+        Password = (findViewById(R.id.passwordEdit));
+        xRemember = (findViewById(R.id.switch_button));
+        if (sharedPref.getBoolean("isRemembered",false)){
+            email.setText(sharedPref.getString("Email",""));
+            Password.setText(sharedPref.getString("Password",""));
+            xRemember.setChecked(true);
+            if (!trackLoginFromDashboard) {
+                Login();
+            }
+        }
+    }
+
+    private void loginButton() {
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (xRemember.isChecked()) {
+                    editor.putString("Email", email.getText().toString());
+                    editor.putString("Password", Password.getText().toString());
+                    editor.putBoolean("isRemembered", true);
+                    editor.apply();
+                    editor.commit();
+                }
+                else {
+                    editor.putString("Email", "");
+                    editor.putString("Password", "");
+                    editor.putBoolean("isRemembered", false);
+                    editor.apply();
+                    editor.commit();
+                }
+
+                OkHttpClient client = new OkHttpClient();
+                MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+                RequestBody body = RequestBody.create(mediaType, "Authorization=&userid=" + email.getText().toString() + "&password=" + Password.getText().toString() + "&Content-Type=application%2Fx-www-form-urlencode&device_token=" +DEVICE_TOKEN+
+                        "&undefined=");
+                Request request = new Request.Builder()
+                        .url("https://jupiter.centralstationmarketing.com/api/ios/Login.php")
+                        .post(body)
+                        .addHeader("cache-control", "no-cache")
+                        .addHeader("Postman-Token", "6354a2d9-73eb-4511-bf1c-66c8abff215c")
+                        .build();
+
+                client.newCall(request).enqueue(new Callback() {
+
+                    Handler mainHandler = new Handler(getApplicationContext().getMainLooper());
+
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        final String myResponse = response.body().string();
+                        mainHandler.post(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                try {
+                                    JSONObject json = new JSONObject(myResponse);
+                                    if (json.getBoolean("Login")) {
+                                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MainActivity.this, central_station_lead_Activity.class));
+
+
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                });
+//                Toast.makeText(MainActivity.this, getDeviceIMEI(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    @SuppressLint("MissingPermission")
+    public String getDeviceIMEI() {
+        String deviceUniqueIdentifier = null;
+        TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        if (null != tm) {
+            deviceUniqueIdentifier = tm.getDeviceId();
+        }
+        if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
+            deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+        }
+        return deviceUniqueIdentifier;
+    }
+
+    private void Login(){
+
+        OkHttpClient client = new OkHttpClient();
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, "Authorization=&userid=" + email.getText().toString() + "&password=" + Password.getText().toString() + "&Content-Type=application%2Fx-www-form-urlencode&device_token=" +DEVICE_TOKEN+
+                "&undefined=");
+        Request request = new Request.Builder()
+                .url("https://jupiter.centralstationmarketing.com/api/ios/Login.php")
+                .post(body)
+                .addHeader("cache-control", "no-cache")
+                .addHeader("Postman-Token", "6354a2d9-73eb-4511-bf1c-66c8abff215c")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+
+            Handler mainHandler = new Handler(getApplicationContext().getMainLooper());
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                final String myResponse = response.body().string();
+                mainHandler.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject json = new JSONObject(myResponse);
+                            if (json.getBoolean("Login")) {
+                                Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this, central_station_lead_Activity.class));
+
+
+                            } else {
+                                Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+}

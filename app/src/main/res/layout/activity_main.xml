@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#332E71">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/img"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/header"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/White"
+            android:layout_marginBottom="35dp"/>
+
+        <EditText
+            android:id="@+id/emailEdit"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="17sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@android:color/black"
+            android:gravity="left"
+            android:hint="Email Address"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@drawable/edittext"
+
+            />
+        <EditText
+            android:id="@+id/passwordEdit"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:gravity="left"
+            android:hint="Password"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="textPassword" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Email Address"
+            android:textSize="17sp"
+            android:textColor="@color/White"
+            android:layout_gravity="center_vertical"
+            android:layout_weight=".5"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"/>
+        <com.suke.widget.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginButtton"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="51dp"
+        android:text="Login"
+        android:textAllCaps="false"
+
+        android:textSize="20sp"
+
+        android:textColor="@color/Black"
+        android:background="@drawable/buttonshape"
+        />
+
+    <TextView
+        android:id="@+id/privacyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Privacy &amp; Terms"
+        android:textColor="@color/White"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="0dp"/>
+</LinearLayout>

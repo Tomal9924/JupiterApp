@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ratting_Activity"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:titleTextColor="#6cb53f"
+        android:background="?attr/colorPrimary"
+        style="@style/toolbar">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/toolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Review"
+            android:textColor="#6cb53f" />
+        <TextView
+            android:id="@+id/toolbarSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#6cb53f" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="6dp"
+            android:background="@android:color/transparent"
+            android:text="Back"
+            android:textColor="@color/White"
+            android:drawableStart="@drawable/back"
+            android:drawableLeft="@drawable/back"
+            />
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/introText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rateInfo"
+                    android:fontFamily="sans-serif"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    />
+                <TextView
+                    android:id="@+id/numberTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="230-502-3245"
+                    android:textColor="@color/item_background"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name and Lst Initial"
+                android:padding="5dp"/>
+            <EditText
+                android:padding="3dp"
+                android:id="@+id/xfirstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:padding="5dp"/>
+            <EditText
+                android:padding="3dp"
+                android:id="@+id/xCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:padding="5dp"/>
+            <EditText
+                android:padding="3dp"
+                android:id="@+id/xState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zip"
+                android:padding="5dp"/>
+            <EditText
+
+                android:padding="3dp"
+                android:id="@+id/xZip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:padding="5dp"/>
+            <EditText
+                android:id="@+id/xComment"
+                android:padding="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="May we publish your review on our website?"
+                android:padding="5dp"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="25dp"
+
+                android:background="@color/Teal">
+
+                <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:entries="@array/selection"/>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How would you rate your overall satisfaction \n with your website?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/first_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How is your experience working with Central \n Station Marketing?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/second_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How satisfied are you with the leads or \n performance of your site?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/third_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How would you rate your knowledge of online \n marketing?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/forth_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How would you rate your the design and layout of \n your site?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/fifth_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How likely are you to recommend Central \n Station Marketing to others?"
+                android:padding="5dp"/>
+            <RatingBar
+                android:id="@+id/sixth_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What is your domain name?"
+                android:padding="5dp"/>
+            <EditText
+                android:padding="3dp"
+                android:id="@+id/domainNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/pass_edit_textn_new"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp">
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:background="#e8ebef"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

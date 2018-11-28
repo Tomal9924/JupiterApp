@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Create_lead_activity"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:titleTextColor="#6cb53f"
+
+        android:background="?attr/colorPrimary"
+        style="@style/toolbar">
+        <TextView
+            android:id="@+id/toolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:padding="8dp"
+            android:text="Create Lead"
+            android:textColor="@color/White" />
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="6dp"
+            android:background="@android:color/transparent"
+            android:text="Back"
+            android:textColor="@color/White"
+            android:drawableStart="@drawable/back"
+            android:drawableLeft="@drawable/back"
+            />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/firstNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="17sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"
+            android:gravity="left"
+            android:hint="@string/first_name_hint"
+
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@drawable/pass_edit_textn_new"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/lastNameEdit"
+            android:layout_marginTop="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:gravity="left"
+            android:hint="@string/last_name_hint"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="text" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/streetEdit"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:gravity="left"
+            android:hint="@string/street_hint"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@drawable/pass_edit_textn_new"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:id="@+id/cityEdit"
+            android:gravity="left"
+            android:hint="@string/city_hint"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="text" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:id="@+id/stateEdit"
+            android:gravity="left"
+            android:hint="@string/state_hint"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="text" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/zipEdit"
+            android:gravity="left"
+            android:hint="@string/zip_hint"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@drawable/pass_edit_textn_new"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/phoneEdit"
+            android:gravity="left"
+            android:hint="@string/phone_hint"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="phone" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:layout_marginBottom="5dp"
+            android:padding="5dp"
+            android:id="@+id/emaillEdit"
+            android:gravity="left"
+            android:hint="@string/email_hint"
+            android:background="@drawable/pass_edit_textn_new"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/commentEdit"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:background="@drawable/pass_edit_textn_new"
+            android:gravity="left"
+            android:hint="@string/comment_hint"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textSize="17sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+
+        android:orientation="horizontal">
+
+        <Button
+            android:text="Create Lead"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:id="@+id/createLeadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:gravity="center"
+
+            android:background="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+</LinearLayout>
